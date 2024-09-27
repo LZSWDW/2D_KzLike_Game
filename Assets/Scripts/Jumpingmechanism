@@ -1,1 +1,25 @@
-public class Jumpingmechanism : Monobehaviour
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class Jumpingmechanism : MonoBehaviour
+{           //地面检测 
+    public Transform groundCheckpoint;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    public bool isTouchGround;
+
+}
+
+private void Update()
+{
+    Check();
+}
+
+public void Check()
+{
+    isTouchGround = physics2D.OverlapCircle(groundCheckpoint.position, groundCheckRadius, groundLayer);
+        
+}
+
